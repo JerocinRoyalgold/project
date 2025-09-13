@@ -1,0 +1,205 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body, html {
+    height: 100%;
+    width: 100%;
+    background: url('assets/back.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 0;
+}
+
+.wrapper {
+    width: 1000px;
+    height: 700px;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.panel {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.6s ease;
+}
+
+.panel.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.left-side,
+.right-side {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.student-panel .left-side,
+.teacher-panel .right-side {
+    background-color: #2D7FF9;
+    color: white;
+}
+
+.student-panel .right-side,
+.teacher-panel .left-side {
+    background-color: white;
+}
+
+/* Welcome text styling with typing animation (NO cursor) */
+.left-side h1,
+.right-side h1 {
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+.left-side h1 span,
+.right-side h1 span {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+    border-right: none; /* remove cursor */
+    animation-fill-mode: forwards;
+}
+
+form {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+}
+
+form h2 {
+    color: #2D7FF9;
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 1.7rem;
+}
+
+.icon {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.icon img {
+    width: 100px;
+    height: 100px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 14px 18px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.forgot {
+    text-align: right;
+    display: block;
+    font-size: 0.9rem;
+    color: #2D7FF9;
+    text-decoration: none;
+    margin-bottom: 25px;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    background-color: #2D7FF9;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+button:hover {
+    background-color: #246ECC;
+}
+
+.switch-link {
+    text-align: center;
+    display: block;
+    font-size: 0.9rem;
+    color: #2D7FF9;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+    .wrapper {
+        width: 90%;
+        height: auto;
+    }
+    form {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 600px) {
+    .wrapper {
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+    }
+    .left-side,
+    .right-side {
+        width: 100%;
+        height: 50%;
+    }
+    .left-side h1,
+    .right-side h1 {
+        font-size: 1.8rem;
+    }
+    form h2 {
+        font-size: 1.3rem;
+    }
+}
+
+/* Typing keyframes */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
