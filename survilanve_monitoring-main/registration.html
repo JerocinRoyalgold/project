@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Registration</title>
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <script src="./assets/js/registration.js" defer></script>
+</head>
+<body>
+    <nav class="navbar">
+        <!-- Left side -->
+        <ul class="nav-links left-links" id="navMenu">
+            <li><a href="teacherlogin.html">Back</a></li>
+        </ul>
+        <!-- Center -->
+        <div class="logo">Surveillance<span>Monitor</span></div>
+    </nav>
+    <div class="container">
+        <h2>Registration</h2>
+        <form id="registrationForm" autocomplete="off">
+            <input type="email" id="collegeMail" name="collegeMail" required placeholder="College Mail ID">
+            <input type="text" id="rollNo" name="rollNo" required placeholder="Roll No">
+            <input type="text" id="regNo" name="regNo" required placeholder="Register No">
+            <input type="text" id="studentName" name="studentName" required placeholder="Name">
+            <input type="tel" id="phoneNumber" name="phoneNumber" required pattern="[0-9]{10}" placeholder="Phone Number">
+            <input type="text" id="deptSection" name="deptSection" required placeholder="Department & Section">
+            <select id="pepHope" name="pepHope" required>
+                <option value="">PEP/HOPE</option>
+                <option value="PEP">PEP</option>
+                <option value="HOPE">HOPE</option>
+            </select>
+            <select id="year" name="year" required>
+                <option value="">Select Year</option>
+                <option value="I">I</option>
+                <option value="II">II</option>
+                <option value="III">III</option>
+                <option value="IV">IV</option>
+            </select>
+            <input type="password" id="password" name="password" required placeholder="Password">
+            <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="Confirm Password">
+
+            <div class="photo-capture-group">
+                <div class="photo-capture-row">
+                    <span class="photo-label">Front</span>
+                    <video id="videoFront" class="photo-preview" autoplay muted></video>
+                    <canvas id="canvasFront" class="photo-canvas" style="display:none;"></canvas>
+                    <button type="button" class="capture-btn" id="resetFront" style="background:#f44336;display:none;">Reset</button>
+                    <button type="button" class="capture-btn" id="captureFront">Capture</button>
+                </div>
+                <div class="photo-capture-row">
+                    <span class="photo-label">Left</span>
+                    <video id="videoLeft" class="photo-preview" autoplay muted></video>
+                    <canvas id="canvasLeft" class="photo-canvas" style="display:none;"></canvas>
+                    <button type="button" class="capture-btn" id="resetLeft" style="background:#f44336;display:none;">Reset</button>
+                    <button type="button" class="capture-btn" id="captureLeft">Capture</button>
+                </div>
+                <div class="photo-capture-row">
+                    <span class="photo-label">Right</span>
+                    <video id="videoRight" class="photo-preview" autoplay muted></video>
+                    <canvas id="canvasRight" class="photo-canvas" style="display:none;"></canvas>
+                    <button type="button" class="capture-btn" id="resetRight" style="background:#f44336;display:none;">Reset</button>
+                    <button type="button" class="capture-btn" id="captureRight">Capture</button>
+                </div>
+            </div>
+
+            <button type="submit">Register Student</button>
+            <div class="success" id="success"></div>
+        </form>
+    </div>
+    <footer id="login">
+        <p>© 2025 Surveillance Monitoring System | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+</body>
+</html>

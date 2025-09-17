@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Login Page</title>
+    <link rel="stylesheet" href="./assets/css/login.css" >
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Surveillance<span>Monitor</span></div>
+    </nav>
+    <div class="wrapper">
+        <!-- Student Login -->
+        <div class="panel student-panel active" id="studentPanel">
+            <div class="left-side">
+                <h1>
+                    <span class="line1">Welcome to</span><br>
+                    <span class="line2">Student Login</span>
+                </h1>
+            </div>
+            <div class="right-side">
+                <form id="studentForm">
+                    <h2>Student Login</h2>
+                    <div class="icon">
+                        <img src="./assets/images/student.png" alt="Student Icon" />
+                    </div>
+                    <input type="text" id="studentId" placeholder="Student ID" required />
+                    <input type="password" id="studentPassword" placeholder="Password" required />
+                    <a href="#" class="forgot">Forgot your password?</a>
+                    <button type="submit">Login</button>
+                    <a href="#" id="showTeacher" class="switch-link">Teacher Login</a>
+                </form>
+            </div>
+        </div>
+
+        <!-- Teacher Login -->
+        <div class="panel teacher-panel" id="teacherPanel">
+            <div class="left-side">
+                <form id="teacherForm">
+                    <h2>Teacher Login</h2>
+                    <div class="icon">
+                        <img src="./assets/images/teacher.png" alt="Teacher Icon" />
+                    </div>
+                    <input type="email" id="teacherEmail" placeholder="Teacher Email" required />
+                    <input type="password" id="teacherPassword" placeholder="Password" required />
+                    <a href="#" class="forgot">Forgot your password?</a>
+                    <button href="teacherlogin.html" type="submit">Login</button>
+                    <a href="#" id="showStudent" class="switch-link">Student Login</a>
+                </form>
+            </div>
+            <div class="right-side">
+                <h1>
+                    <span class="line1">Welcome to</span><br>
+                    <span class="line2">Teacher Login</span>
+                </h1>
+            </div>
+        </div>
+    </div>
+    <script src="./assets/js/login.js"></script>
+</body>
+</html>
