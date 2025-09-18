@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Attendance Portal</title>
+    <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <!-- Left side -->
+        <ul class="nav-links left-links" id="navMenu">
+            <li><a href="registration.html">New Registration</a></li>
+        </ul>
+        <!-- Center -->
+        <div class="logo">Surveillance<span>Monitor</span></div>
+    </nav>
+
+    <div class="boxes">
+        <div onclick="window.location.href='attendance.html'">
+            <img src="./assets/images/attendance.png" alt="Attendance Icon" class="icon">
+            <div class="will-update">Attendance Portal</div>
+        </div>
+        <div onclick="window.location.href='startattendance.html'">
+            <img src="./assets/images/startattendance.png" alt="StartAttendance Icon" class="icon">
+            <div class="will-update" href="startattendance.html">Start Attendance</div>
+        </div>
+        <div>
+            <img src="./assets/images/livemonitoring.png" alt="Live Monitoring" class="icon">
+            <div class="will-update">Will soon update</div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2025 Surveillance Monitoring System | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+
+    <!-- Script -->
+    <script>
+    function toggleMenu() {
+        document.getElementById("navMenu").classList.toggle("show");
+    }
+    </script>
+</body>
+</html>

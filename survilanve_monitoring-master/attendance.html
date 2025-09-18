@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <title>Attendance</title>
+    <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <!-- Left side -->
+        <ul class="nav-links left-links" id="navMenu">
+            <li><a href="teacherlogin.html">Back</a></li>
+        </ul>
+        <!-- Center -->
+        <div class="logo">Surveillance<span>Monitor</span></div>
+    </nav>
+    <div class="container">
+        <h1>Attendance Sheet</h1>
+        <form class="date-form">
+            <label for="attendance-date">Select Date:</label>
+            <input type="date" id="attendance-date" name="attendance-date">
+            <button type="button" id="get-details-btn">Get Details</button>
+        </form>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Roll No</th>
+                    <th>Name</th>
+                    <th>Status</th>
+                    <th>Timestamp</th>
+                </tr>
+            </thead>
+            <tbody id="attendance-tbody">
+                <!-- Rows will be populated by JS -->
+            </tbody>
+        </table>
+    </div>
+    <footer id="login">
+        <p>© 2025 Surveillance Monitoring System | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+    <script>
+    // filepath: c:\Users\meena\Desktop\New folder (2)\attendance.html
+
+    // API function to POST date and get attendance data
+    async function fetchAttendanceByDate(date) {
+        const response = await fetch('http://10.1.34.224:5600/attendance', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ date: date })
+        });
+        if (!response.ok) throw new Error('Network response was not ok');
+        const result = await response.json();
+        if (result.status !== "success") throw new Error(result.message || "API error");
+        return result.data;
+    }
+
+    document.getElementById('get-details-btn').addEventListener('click', async function() {
+        const date = document.getElementById('attendance-date').value;
+        if (!date) {
+            alert('Please select a date.');
+            return;
+        }
+        const tbody = document.getElementById('attendance-tbody');
+        tbody.innerHTML = '<tr><td colspan="5">Loading...</td></tr>';
+        try {
+            const data = await fetchAttendanceByDate(date);
+            if (!data || data.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="5">No records found.</td></tr>';
+                return;
+            }
+            tbody.innerHTML = data.map(row => `
+                <tr>
+                    <td>${row.id}</td>
+                    <td>${row.roll_no}</td>
+                    <td>${row.student_name}</td>
+                    <td class="${row.status && row.status.toLowerCase() === 'present' ? 'present' : 'absent'}">
+                        ${row.status}
+                    </td>
+                    <td>${row.timestamp || ''}</td>
+                </tr>
+            `).join('');
+        } catch (e) {
+            tbody.innerHTML = '<tr><td colspan="5">Error loading data.</td></tr>';
+        }
+    });
+    </script>
+</body>
+</html>

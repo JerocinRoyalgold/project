@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Attendance Portal</title>
+    <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <!-- Left side -->
+        <ul class="nav-links left-links" id="navMenu">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+
+        <!-- Hamburger (mobile only) -->
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+
+        <!-- Center -->
+        <div class="logo">Surveillance<span>Monitor</span></div>
+
+        <!-- Right side -->
+        <ul class="nav-links right-links">
+            <li><a href="login.html" class="login-btn">Login</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h2>Attendance Portal</h2>
+        <div class="will-update">Will soon update</div>
+    </div>
+
+    <section class="features" id="features">
+        <h2>Our Features</h2>
+        <div class="feature-cards">
+            <div class="card">📹 <h3>Live Monitoring</h3><p>Watch real-time CCTV streams with low latency.</p></div>
+            <div class="card">🔔 <h3>Smart Alerts</h3><p>Instant notifications on suspicious activities.</p></div>
+            <div class="card">📊 <h3>Analytics Dashboard</h3><p>Insights and usage statistics for better security.</p></div>
+            <div class="card">🔐 <h3>User Management</h3><p>Role-based access control for security staff.</p></div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Surveillance Monitoring System | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+
+    <!-- Script -->
+    <script>
+    function toggleMenu() {
+        document.getElementById("navMenu").classList.toggle("show");
+    }
+    </script>
+</body>
+</html>
